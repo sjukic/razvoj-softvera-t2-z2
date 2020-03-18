@@ -17,15 +17,20 @@ public class Controller {
         return suma;
     }
     public void sumaCifaraBrojeva(ActionEvent actionEvent) {
-        int n = Integer.parseInt(unosBroja.getText());
-        String izlazni = new String();
-        for(int i=1; i<=n; i++){
-            int suma=0;
-            suma = sumaCifara(i);
-            if(i%suma == 0){
-                izlazni = izlazni + Integer.toString(i) + " ";
+        try {
+            int n = Integer.parseInt(unosBroja.getText());
+            String izlazni = new String();
+            for (int i = 1; i <= n; i++) {
+                int suma = 0;
+                suma = sumaCifara(i);
+                if (i % suma == 0) {
+                    izlazni = izlazni + Integer.toString(i) + " ";
+                }
             }
+            ispisBrojeva.setText(izlazni);
         }
-        ispisBrojeva.setText(izlazni);
+        catch (NumberFormatException error){
+            ispisBrojeva.setText("Pogrešan unos, pokušaj ponovo!");
+        }
     }
 }
