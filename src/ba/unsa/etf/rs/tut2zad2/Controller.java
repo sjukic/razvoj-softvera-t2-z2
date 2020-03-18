@@ -8,16 +8,20 @@ public class Controller {
     public TextField unosBroja;
     public TextArea ispisBrojeva;
 
-
-    public void sumaCifara(ActionEvent actionEvent) {
+    public int sumaCifara (int broj) {
+        int suma=0;
+        while(broj != 0){
+            suma = suma + (broj%10);
+            broj = broj / 10;
+        }
+        return suma;
+    }
+    public void sumaCifaraBrojeva(ActionEvent actionEvent) {
         int n = Integer.parseInt(unosBroja.getText());
         String izlazni = new String();
         for(int i=1; i<=n; i++){
-            int j = i, suma=0;
-            while(j!=0){
-                suma = suma + (j%10);
-                j=j/10;
-            }
+            int suma=0;
+            suma = sumaCifara(i);
             if(i%suma == 0){
                 izlazni = izlazni + Integer.toString(i) + " ";
             }
